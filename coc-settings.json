@@ -1,9 +1,5 @@
 {
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-1.8",
-            "path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home"
-        }
-    ]
+    // java
+    "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home"
 }
 

@@ -1,3 +1,3 @@
-./autoload/
-./plugged/
-./init.vim.bak
+autoload/
+plugged/
+init.vim.bak
