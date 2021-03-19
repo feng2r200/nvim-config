@@ -51,10 +51,6 @@ silent! call mkdir(expand('~/.vim/tmp'), "p", 0755)
 "----------------------------------------------------------------------
 " 配置微调
 "----------------------------------------------------------------------
-if has('nvim')
-	set guicursor=
-endif
-
 " 打开文件时恢复上次光标所在位置
 autocmd BufReadPost *
 	\ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -67,22 +63,14 @@ if !exists(":DiffOrig")
 	\ | wincmd p | diffthis
 endif
 
-" 若文件被vim之外的程序修改过，重新读取
+" 文件被vim之外的程序修改后,重新读取
 set autoread
 
-" TextEdit might fail if hidden is not set
+" Text might fail if hidden is not set
 set hidden
 
-set so=20
-
-" 剪切板
-set clipboard=unnamed,unnamedplus
-
-" 高亮当前位置
-set cursorline
-set cursorcolumn
-highlight clear SignColumn
-highlight clear LineNr
+" 支持系统剪切板
+set clipboard+=unnamed,unnamedplus
 
 "----------------------------------------------------------------------
 " 文件类型微调
