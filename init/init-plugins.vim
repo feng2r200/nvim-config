@@ -76,18 +76,31 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 " range selection " in Visual mode, type k' to select all text in range.
 Plug 'gcmt/wildfire.vim'
-" Defines text objects to target text after the designated characters.
-Plug 'junegunn/vim-after-object'
 " vim motion on speed
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 " quick subversive
 Plug 'svermeulen/vim-subversive'
-" argtextobj
-Plug 'theniceboy/argtextobj.vim'
 " show indent line
 Plug 'Yggdroot/indentLine'
+" }
+
+" 文本对象：textobj 全家桶 {
+" 基础插件：提供让用户方便的自定义文本对象的接口
+Plug 'kana/vim-textobj-user'
+" indent 文本对象：ii/ai 表示当前缩进，vii 选中当缩进，cii 改写缩进
+Plug 'kana/vim-textobj-indent'
+" 语法文本对象：iy/ay 基于语法的文本对象
+Plug 'kana/vim-textobj-syntax'
+" 函数文本对象：if/af 支持 c/c++/vim/java
+Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
+" 参数文本对象：i,/a, 包括参数或者列表元素
+Plug 'sgur/vim-textobj-parameter'
+" 提供 python 相关文本对象，if/af 表示函数，ic/ac 表示类
+Plug 'bps/vim-textobj-python', {'for': 'python'}
+" 提供 uri/url 的文本对象，iu/au 表示
+Plug 'jceb/vim-textobj-uri'
 " }
 
 " Find & Replace {
@@ -295,17 +308,6 @@ augroup autoformat_settings
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
-" }}
-
-" vim-after-object {{
-" va= visual after =
-" ca= change after =
-" da= delete after =
-" ya= yank after =
-" When the line contains multiple occurrences of the character,
-" you can move the visual selection forward by repeating a=, or backward with aa=.
-" Both mappings can be preceded by a count.
-autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 " }}
 
 " vim-easymotion {{
