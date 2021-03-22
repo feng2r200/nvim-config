@@ -27,26 +27,14 @@ endif
 " 备份设置
 "----------------------------------------------------------------------
 
-" 允许备份
-set backup
-
-" 保存时备份
-set writebackup
-
-" 备份文件地址统一管理
-set backupdir=~/.vim/tmp
-
-" 备份文件扩展名
-set backupext=.bak
+set nobackup
+set nowritebackup
 
 " 禁用交换文件
 set noswapfile
 
 " 禁用 undo 文件
 set noundofile
-
-" 创建目录并忽略可能出现的警告
-silent! call mkdir(expand('~/.vim/tmp'), "p", 0755)
 
 "----------------------------------------------------------------------
 " 配置微调
@@ -71,6 +59,16 @@ set hidden
 
 " 支持系统剪切板
 set clipboard+=unnamed,unnamedplus
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 "----------------------------------------------------------------------
 " 文件类型微调

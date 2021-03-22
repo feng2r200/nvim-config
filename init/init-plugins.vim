@@ -15,7 +15,7 @@ Plug 'flazz/vim-colorschemes'
 " }
 
 " Treesitter {
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 " }
 
@@ -64,38 +64,79 @@ Plug 'google/vim-codefmt'
 " }
 
 " Python {
-Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-" :h braceless
-Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 " }
 
 " Editor Enhancement{
 Plug 'jiangmiao/auto-pairs'
 " :help [visual-multi]|[vm-some-topic]
 Plug 'mg979/vim-visual-multi'
-" Comment code
+" Comment code h: tcomment
 Plug 'tomtom/tcomment_vim'
 " surround
 Plug 'tpope/vim-surround'
-" range selection
+" range selection " in Visual mode, type k' to select all text in range.
 Plug 'gcmt/wildfire.vim'
+" Defines text objects to target text after the designated characters.
+Plug 'junegunn/vim-after-object'
+" vim motion on speed
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+" quick subversive
+Plug 'svermeulen/vim-subversive'
+" argtextobj
+Plug 'theniceboy/argtextobj.vim'
+" show indent line
+Plug 'Yggdroot/indentLine'
 " }
 
-call plug#end() "}}
+" Find & Replace {
+Plug 'brooth/far.vim'
+" }
+
+" Use a tasks for vim {
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
+" }
+
+" Other visual enhancement {
+Plug 'mg979/vim-xtabline'
+Plug 'ryanoasis/vim-devicons'
+" }
+
+call plug#end()
+"}}
+
+" nvim-treesitter {{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",     -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},               -- list of language that will be disabled
+  },
+  indent = {
+    enable = true,
+  }
+}
+EOF
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+" }}
 
 " coc.vim {{
 let g:coc_global_extensions = [
             \ 'coc-css',
             \ 'coc-diagnostic',
             \ 'coc-explorer',
-			\ 'coc-go',
+            \ 'coc-go',
             \ 'coc-highlight',
             \ 'coc-java',
-			\ 'coc-java-debug',
+            \ 'coc-java-debug',
             \ 'coc-json',
             \ 'coc-lists',
-			\ 'coc-lua',
-			\ 'coc-markdownlint',
+            \ 'coc-lua',
+            \ 'coc-markdownlint',
             \ 'coc-prettier',
             \ 'coc-pyright',
             \ 'coc-python',
@@ -105,18 +146,59 @@ let g:coc_global_extensions = [
             \ 'coc-stylelint',
             \ 'coc-syntax',
             \ 'coc-tasks',
+            \ 'coc-toml',
             \ 'coc-tsserver',
             \ 'coc-vimlsp',
             \ 'coc-yaml']
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 " }}
 
 " lightline {{
+function! NearestMethodOrFunction() abort
+	return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
 let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
-            \   'left': [['mode', 'paste'], ['cocstatus', 'gitbranch', 'readonly', 'filename', 'method', 'modified']],
-            \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype']]
+            \   'left': [['mode', 'paste'], ['filename', 'modified', 'method', 'readonly']],
+            \   'right': [['lineinfo'], ['percent'], ['cocstatus', 'gitbranch', 'fileformat', 'fileencoding', 'filetype']]
             \ },
             \ 'component_function': { 
             \   'gitbranch': 'FugitiveHead',
@@ -128,9 +210,6 @@ let g:lightline = {
 
 " vista {{
 let g:vista_default_executive='coc'
-" To enable fzf's preview window set g:vista_fzf_preview
-" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
-let g:vista_fzf_preview=['right:50%']
 " }}
 
 " vim-illuminate {{
@@ -156,7 +235,8 @@ EOF
 autocmd FileType clap_input inoremap <silent> <buffer> <C-n> <C-R>=clap#navigation#linewise('down')<CR>
 autocmd FileType clap_input inoremap <silent> <buffer> <C-p> <C-R>=clap#navigation#linewise('up')<CR>
 " Project root markers
-let g:clap_project_root_markers = ['.root', '.git', '.git/', '.idea', '.vscode']
+let g:clap_project_root_markers = ['.root', '.git', '.project', '.idea', '.vscode']
+let g:clap_theme = 'material_design_dark'
 " }}
 
 " any-jump {{
@@ -217,15 +297,47 @@ augroup autoformat_settings
 augroup END
 " }}
 
-" vim-python-pep8-indent {{
-let python_pep8_indent_hang_closing = 1
+" vim-after-object {{
+" va= visual after =
+" ca= change after =
+" da= delete after =
+" ya= yank after =
+" When the line contains multiple occurrences of the character,
+" you can move the visual selection forward by repeating a=, or backward with aa=.
+" Both mappings can be preceded by a count.
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 " }}
 
-" braceless {{
-autocmd FileType python,haml,yaml,coffee BracelessEnable +indent +fold +highlight
+" vim-easymotion {{
+" Integration with incsearch.vim
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<C-l>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> z/  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> z?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> zg/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+nmap <leader><leader>f  <Plug>(easymotion-sn)
 " }}
 
-" auto-pairs {{
-"
+" AsyncTasks {{
+let g:asyncrun_open = 6
+
+let g:asyncrun_rootmarks = ['.root', '.git', '.project', '.idea', '.vscode']
+let g:asynctasks_term_pos = 'bottom'
+let g:asynctasks_term_rows = 10
+let g:asynctasks_term_focus = 0
 " }}
 
