@@ -84,6 +84,8 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'svermeulen/vim-subversive'
 " show indent line
 Plug 'Yggdroot/indentLine'
+" Make the yanked region apparent!
+Plug 'machakann/vim-highlightedyank'
 " }
 
 " 文本对象：textobj 全家桶 {
