@@ -63,10 +63,6 @@ function g:Undotree_CustomMap()
 endfunc
 " }}
 
-" lazygit {{
-nnoremap <silent> <leader>lg :LazyGit<CR>
-" }}
-
 " vim-easymotion {{
 " Integration with incsearch.vim
 function! s:incsearch_config(...) abort
@@ -94,6 +90,10 @@ let g:VM_maps = {}
 let g:VM_maps['Find Under']                  = '<leader><leader>n'
 let g:VM_maps['Find Subword Under']          = '<leader><leader>n'
 let g:VM_maps["Add Cursor At Pos"]           = ''
+" }}
+
+" vim-floaterm {{
+nnoremap <silent> <leader>lg :FloatermNew lazygit<CR>
 " }}
 
 """ Common mapping config ---------------------------------------------------

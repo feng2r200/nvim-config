@@ -54,7 +54,6 @@ Plug 'mbbill/undotree'
 
 " Git {
 Plug 'airblade/vim-gitgutter'
-Plug 'kdheepak/lazygit.nvim'
 Plug 'tpope/vim-fugitive'
 " }
 
@@ -100,6 +99,10 @@ Plug 'skywind3000/asyncrun.vim'
 " Other visual enhancement {
 Plug 'mg979/vim-xtabline'
 Plug 'ryanoasis/vim-devicons'
+" }
+
+" 浮动终端 {
+Plug 'voldikss/vim-floaterm'
 " }
 
 call plug#end()
@@ -221,12 +224,6 @@ let g:undotree_SplitWidth = 24
 let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
-" }}
-
-" lazygit.vim {{
-let g:lazygit_floating_window_winblend = 0 " transparency of floating window
-let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
-let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 " }}
 
 " Autoformat {{
