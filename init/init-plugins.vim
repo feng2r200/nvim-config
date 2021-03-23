@@ -94,6 +94,7 @@ Plug 'brooth/far.vim'
 " Use a tasks for vim {
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.extra'
 " }
 
 " Other visual enhancement {
@@ -103,6 +104,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " 浮动终端 {
 Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/clap-floaterm'
 " }
 
 call plug#end()
@@ -130,6 +132,7 @@ let g:coc_global_extensions = [
             \ 'coc-css',
             \ 'coc-diagnostic',
             \ 'coc-explorer',
+			\ 'coc-floaterm',
             \ 'coc-go',
             \ 'coc-highlight',
             \ 'coc-java',
