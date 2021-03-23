@@ -333,7 +333,9 @@ let g:EasyMotion_do_mapping = 0
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
 
-nmap <leader><leader>f  <Plug>(easymotion-sn)
+nmap ff  <Plug>(easymotion-overwin-w)
+nmap fl  <Plug>(easymotion-overwin-line)
+nmap ft  <Plug>(easymotion-sn)
 " }}
 
 " AsyncTasks {{
