@@ -74,14 +74,10 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 " Comment code h: tcomment
 Plug 'tomtom/tcomment_vim'
-" range selection " in Visual mode, type k' to select all text in range.
-Plug 'gcmt/wildfire.vim'
 " vim motion on speed
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-" quick subversive
-Plug 'svermeulen/vim-subversive'
 " show indent line
 Plug 'Yggdroot/indentLine'
 " Make the yanked region apparent!
