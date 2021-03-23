@@ -68,12 +68,12 @@ Plug 'google/vim-codefmt'
 
 " Editor Enhancement{
 Plug 'jiangmiao/auto-pairs'
-" :help [visual-multi]|[vm-some-topic]
+" :help visual-multi
 Plug 'mg979/vim-visual-multi'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
 " Comment code h: tcomment
 Plug 'tomtom/tcomment_vim'
-" surround
-Plug 'tpope/vim-surround'
 " range selection " in Visual mode, type k' to select all text in range.
 Plug 'gcmt/wildfire.vim'
 " vim motion on speed

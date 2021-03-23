@@ -88,6 +88,14 @@ nmap fl  <Plug>(easymotion-overwin-line)
 nmap ft  <Plug>(easymotion-sn)
 " }}
 
+" vim-visual-multi {{
+let g:VM_maps = {}
+
+let g:VM_maps['Find Under']                  = '<leader><leader>n'
+let g:VM_maps['Find Subword Under']          = '<leader><leader>n'
+let g:VM_maps["Add Cursor At Pos"]           = ''
+" }}
+
 """ Common mapping config ---------------------------------------------------
 
 " After block yank and paste, move cursor to the end of operated text and don't override register
@@ -121,10 +129,6 @@ nmap ,c yiw
 
 " Reselect last-pasted text
 nnoremap gp `[v`]
-
-" easy window navigation
-nnoremap <a-k> gT
-nnoremap <a-j> gt
 
 " clear the search buffer when hitting return
 nnoremap <leader><CR> :nohlsearch<CR>
