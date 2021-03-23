@@ -33,8 +33,16 @@ set nowritebackup
 " 禁用交换文件
 set noswapfile
 
-" 禁用 undo 文件
-set noundofile
+" undo 文件
+if has("persistent_undo")
+	let target_path = expand('~/.cache/nvim/undodir')
+	if !isdirectory(target_path)
+		call mkdir(target_path, "p", 0700)
+	endif
+
+	let undodir=target_path
+	set undofile
+endif
 
 "----------------------------------------------------------------------
 " 配置微调
