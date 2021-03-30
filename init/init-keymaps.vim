@@ -89,21 +89,20 @@ let g:VM_maps["Add Cursor At Pos"]           = ''
 " }}
 
 " vim-floaterm {{
-nnoremap <silent> <leader>lg :FloatermNew lazygit<CR>
-
-nnoremap   <silent>   <F7>    :FloatermNew<CR>
-tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <F8>    :FloatermPrev<CR>
-tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <F9>    :FloatermNext<CR>
-tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+tnoremap   <silent>   <ESC>gt    <C-\><C-n>:FloatermPrev<CR>
+tnoremap   <silent>   <ESC>gT    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>      :FloatermToggle<CR>
+tnoremap   <silent>   <F12>      <C-\><C-n>:FloatermToggle<CR>
 " }}
 
-" vim-expand-region
+" vim-expand-region {{
 map <m-=> <Plug>(expand_region_expand)
 map <m--> <Plug>(expand_region_shrink)
+" }}
+
+" vimspector {{
+
+" }}
 
 """ Common mapping config ---------------------------------------------------
 noremap <C-h> <C-w><C-h>

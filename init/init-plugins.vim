@@ -358,10 +358,6 @@ let g:any_jump_search_prefered_engine = 'ag'
 let g:any_jump_colors = { "help": "Function" }
 " }}
 
-" vimspector {{
-let g:vimspector_enable_mappings = 'HUMAN'
-" }}
-
 " UndoTree {{
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
