@@ -40,6 +40,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+inoremap <silent><expr> <c-space> coc#refresh()
 " }}
 
 " any-jump {{

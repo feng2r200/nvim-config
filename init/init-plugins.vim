@@ -291,6 +291,10 @@ endif
 " 设置 ctags 的参数
 let g:gutentags_ctags_extra_args = []
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--langdef=Go', '--langmap=Go:.go',
+			\ '--regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/',
+			\ '--regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/',
+			\ '--regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/']
 
 " 使用 universal-ctags 的话需要下面这行，请反注释
 " let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
@@ -402,5 +406,9 @@ let g:asyncrun_rootmarks = ['.root', '.git', '.project', '.idea', '.vscode']
 let g:asynctasks_term_pos = 'bottom'
 let g:asynctasks_term_rows = 10
 let g:asynctasks_term_focus = 0
+" }}
+
+" vim-go {{
+let g:go_list_type = "quickfix"
 " }}
 
