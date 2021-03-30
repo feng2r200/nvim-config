@@ -34,15 +34,7 @@ set nowritebackup
 set noswapfile
 
 " undo 文件
-if has("persistent_undo")
-	let target_path = expand('~/.cache/nvim/undodir')
-	if !isdirectory(target_path)
-		call mkdir(target_path, "p", 0700)
-	endif
-
-	let undodir=target_path
-	set undofile
-endif
+set noundofile
 
 "----------------------------------------------------------------------
 " 配置微调
@@ -52,12 +44,6 @@ autocmd BufReadPost *
 	\ if line("'\"") > 1 && line("'\"") <= line("$") |
 	\	 exe "normal! g`\"" |
 	\ endif
-
-" 定义一个 DiffOrig 命令用于查看文件改动
-if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-	\ | wincmd p | diffthis
-endif
 
 " 文件被vim之外的程序修改后,重新读取
 set autoread
@@ -111,3 +97,4 @@ augroup InitFileTypesGroup
 	au BufNewFile,BufRead *.vl setlocal filetype=verilog
 
 augroup END
+

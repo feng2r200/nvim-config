@@ -1,5 +1,14 @@
 {
     // java
-    "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home"
+    "java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
+	"java.jdt.ls.vmargs": "-noverify -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication",
+	"codeLens.enable": true,
+	"java.referencesCodeLens.enabled": true,
+	"java.implementationsCodeLens.enabled": true,
+	"java.signatureHelp.enabled": true,
+	"java.import.maven.enabled":true,
+	"java.completion.enabled": true,
+	"java.completion.overwrite":false,
+	"java.completion.guessMethodArguments": true
 }
 

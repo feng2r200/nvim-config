@@ -42,12 +42,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 " }}
 
-" vim-clap {{
-" Use <C-n>/<C-p> instead of <C-j>/<C-k> to navigate the result.
-autocmd FileType clap_input inoremap <silent> <buffer> <C-n> <C-R>=clap#navigation#linewise('down')<CR>
-autocmd FileType clap_input inoremap <silent> <buffer> <C-p> <C-R>=clap#navigation#linewise('up')<CR>
-" }}
-
 " any-jump {{
 nnoremap <leader>j :AnyJump<CR>
 xnoremap <leader>j :AnyJumpVisual<CR>
@@ -94,41 +88,26 @@ let g:VM_maps["Add Cursor At Pos"]           = ''
 
 " vim-floaterm {{
 nnoremap <silent> <leader>lg :FloatermNew lazygit<CR>
+
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 " }}
 
+" vim-expand-region
+map <m-=> <Plug>(expand_region_expand)
+map <m--> <Plug>(expand_region_shrink)
+
 """ Common mapping config ---------------------------------------------------
-
-" After block yank and paste, move cursor to the end of operated text and don't override register
-vnoremap y y`]
-vnoremap p "_dP`]
-nnoremap p p`]
-
-" Yank and paste from clipboard
-nnoremap ,y "+y
-vnoremap ,y "+y
-nnoremap ,yy "+yy
-nnoremap ,p "+p
-
-" have x (removes single character) not go into the default registry
-nnoremap x "_x
-" Make X an operator that removes without placing text in the default registry
-nmap X "_d
-nmap XX "_dd
-vmap X "_d
-vmap x "_d
-
-" don't yank to default register when changing something
-nnoremap c "xc
-xnoremap c "xc
-
-" Change line, better use S for this.
-nmap cc 1S
-
-" Copy Word
-nmap ,c yiw
-
-" Reselect last-pasted text
-nnoremap gp `[v`]
+noremap <C-h> <C-w><C-h>
+noremap <C-j> <C-w><C-j>
+noremap <C-k> <C-w><C-k>
+noremap <C-l> <C-w><C-l>
 
 " clear the search buffer when hitting return
 nnoremap <leader><CR> :nohlsearch<CR>
