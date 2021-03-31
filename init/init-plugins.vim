@@ -83,7 +83,7 @@ Plug 'google/vim-codefmt'
 " }
 
 " Go {
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 " }
 
 " Editor Enhancement{
@@ -126,10 +126,6 @@ Plug 'ryanoasis/vim-devicons'
 " 浮动终端 {
 Plug 'voldikss/vim-floaterm'
 Plug 'voldikss/LeaderF-floaterm'
-" }
-
-" 支持库，给其他插件用的函数库{
-Plug 'xolox/vim-misc'
 " }
 
 call plug#end()
@@ -380,6 +376,7 @@ augroup autoformat_settings
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType json syntax match Comment +\/\/.\+$+
   autocmd FileType python AutoFormatBuffer yapf
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
