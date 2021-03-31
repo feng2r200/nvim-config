@@ -217,30 +217,30 @@ set foldexpr=nvim_treesitter#foldexpr()
 
 " coc.vim {{
 let g:coc_global_extensions = [
-            \ 'coc-css',
-            \ 'coc-diagnostic',
-            \ 'coc-explorer',
+			\ 'coc-css',
+			\ 'coc-diagnostic',
+			\ 'coc-explorer',
 			\ 'coc-floaterm',
-            \ 'coc-go',
-            \ 'coc-highlight',
-            \ 'coc-java',
-            \ 'coc-java-debug',
-            \ 'coc-json',
-            \ 'coc-lists',
-            \ 'coc-lua',
-            \ 'coc-markdownlint',
-            \ 'coc-pyright',
-            \ 'coc-python',
-            \ 'coc-sh',
-            \ 'coc-snippets',
-            \ 'coc-sql',
-            \ 'coc-stylelint',
-            \ 'coc-syntax',
-            \ 'coc-tasks',
-            \ 'coc-toml',
-            \ 'coc-tsserver',
-            \ 'coc-vimlsp',
-            \ 'coc-yaml']
+			\ 'coc-go',
+			\ 'coc-highlight',
+			\ 'coc-java',
+			\ 'coc-java-debug',
+			\ 'coc-json',
+			\ 'coc-lists',
+			\ 'coc-lua',
+			\ 'coc-markdownlint',
+			\ 'coc-pyright',
+			\ 'coc-python',
+			\ 'coc-sh',
+			\ 'coc-snippets',
+			\ 'coc-sql',
+			\ 'coc-stylelint',
+			\ 'coc-syntax',
+			\ 'coc-tasks',
+			\ 'coc-toml',
+			\ 'coc-tsserver',
+			\ 'coc-vimlsp',
+			\ 'coc-yaml']
 
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -408,8 +408,8 @@ let g:undotree_SplitWidth = 24
 
 noremap <leader>ud :UndotreeToggle<CR>
 function g:Undotree_CustomMap()
-	nmap <buffer> n <plug>UndotreeNextState
-	nmap <buffer> p <plug>UndotreePreviousState
+	nmap <buffer> p <plug>UndotreeNextState
+	nmap <buffer> n <plug>UndotreePreviousState
 endfunc
 " }}
 
