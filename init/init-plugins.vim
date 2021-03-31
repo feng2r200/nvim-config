@@ -15,7 +15,7 @@ endif
 call plug#begin('~/.config/nvim/plugged') "{{
 
 " colorschemas {
-Plug 'flazz/vim-colorschemes'
+Plug 'nanotech/jellybeans.vim'
 " }
 
 " Treesitter {
@@ -47,11 +47,6 @@ Plug 'skywind3000/vim-preview'
 
 " 用于在侧边符号栏显示 marks （ma-mz 记录的位置）{
 Plug 'kshenoy/vim-signature'
-" }
-
-" General Highlighter {
-" automatically highlighting other uses of the current word under the cursor
-Plug 'RRethy/vim-illuminate'
 " }
 
 " File navigation {
@@ -98,8 +93,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-" show indent line
-Plug 'Yggdroot/indentLine'
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 " }
@@ -286,19 +279,15 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " }}
 
 " lightline {{
-function! NearestMethodOrFunction() abort
-	return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
 let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
-            \   'left': [['mode', 'paste'], ['filename', 'modified', 'method', 'readonly']],
+            \   'left': [['mode', 'paste'], ['filename', 'modified', 'readonly']],
             \   'right': [['lineinfo'], ['percent'], ['cocstatus', 'gitbranch', 'fileformat', 'fileencoding', 'filetype']]
             \ },
             \ 'component_function': { 
             \   'gitbranch': 'FugitiveHead',
-            \   'cocstatus': 'coc#status',
-            \   'method': 'NearestMethodOrFunction'
+            \   'cocstatus': 'coc#status'
             \ },
             \ }
 " }}
@@ -338,11 +327,6 @@ let g:gutentags_ctags_extra_args += ['--langdef=Go', '--langmap=Go:.go',
 let g:gutentags_auto_add_gtags_cscope = 0
 
 let g:gutentags_plus_nomap = 1
-" }}
-
-" vim-illuminate {{
-let g:Illuminate_delay = 100
-hi link illuminatedWord Visual
 " }}
 
 " python with virtualenv support {

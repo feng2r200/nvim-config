@@ -34,7 +34,11 @@ set nowritebackup
 set noswapfile
 
 " undo 文件
-set noundofile
+" set noundofile
+if has('persistent_undo')
+	set undofile
+	set undodir=~/.cache/undo
+endif
 
 "----------------------------------------------------------------------
 " 配置微调

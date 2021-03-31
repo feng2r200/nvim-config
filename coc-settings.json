@@ -1,8 +1,57 @@
 {
-    // java
-    "java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
-	"java.jdt.ls.vmargs": "-noverify -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication",
+	"coc.preferences.colorSupport": true,
+	"coc.preferences.floatActions": true,
+	"coc.preferences.highlightTimeout": 500,
+	"coc.preferences.previewAutoClose": true,
+	"coc.preferences.enableFloatHighlight": true,
+	"coc.preferences.snippetStatusText": "Ⓢ ",
+	"coc.preferences.extensionUpdateCheck": "daily",
+	"suggest.noselect": true,
+	"suggest.floatEnable": true,
+	"suggest.enablePreview": true,
+	"suggest.enablePreselect": false,
+	"suggest.triggerAfterInsertEnter": true,
+	"suggest.autoTrigger": "always",
+	"suggest.timeout": 5000,
+	"suggest.detailField": "preview",
+	"suggest.snippetIndicator": "",
+	"suggest.triggerCompletionWait": 100,
+	"suggest.echodocSupport": true,
+	"diagnostic.displayByAle": false,
 	"codeLens.enable": true,
+	"yaml.format.enable": true,
+	"signature.enable": true,
+	"signature.target": "float",
+	"explorer.sources": [
+		{
+			"name": "bookmark",
+			"expand": false
+		},
+		{
+			"name": "buffer",
+			"expand": false
+		},
+		{
+			"name": "file",
+			"expand": true
+		}
+	],
+	"explorer.file.column.indent.indentLine": true,
+	"explorer.file.showHiddenFiles": true,
+	"explorer.file.git.showUntrackedFiles": true,
+	"explorer.git.enable": true,
+	"explorer.git.showIgnored": true,
+	"python.autoComplete.addBrackets": true,
+	"python.venvPath": "./venv",
+	"python.jediEnabled": false,
+	"python.formatting.provider": "yapf",
+	"python.formatting.yapfArgs": [
+		"--style",
+		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
+	],
+	"json.format.enable": true,
+	"java.home": "/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home",
+	"java.jdt.ls.vmargs": "-noverify -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication",
 	"java.referencesCodeLens.enabled": true,
 	"java.implementationsCodeLens.enabled": true,
 	"java.signatureHelp.enabled": true,
