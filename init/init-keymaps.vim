@@ -1,7 +1,6 @@
 """ Plugins mapping config ---------------------------------------------------
 
 " coc {{
-" Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -27,7 +26,7 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nnoremap <leader>1 :CocCommand explorer<CR>
+nnoremap <M-e> :CocCommand explorer<CR>
 
 " Symbol renaming.
 nmap <leader>rr <Plug>(coc-rename)
@@ -42,6 +41,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 inoremap <silent><expr> <c-space> coc#refresh()
+
 " }}
 
 " any-jump {{
@@ -54,8 +54,8 @@ nnoremap <leader>al :AnyJumpLastResults<CR>
 " UndoTree {{
 noremap <leader>ud :UndotreeToggle<CR>
 function g:Undotree_CustomMap()
-	nmap <buffer> u <plug>UndotreeNextState
-	nmap <buffer> e <plug>UndotreePreviousState
+	nmap <buffer> n <plug>UndotreeNextState
+	nmap <buffer> p <plug>UndotreePreviousState
 endfunc
 " }}
 
@@ -95,11 +95,6 @@ nnoremap   <silent>   <F12>      :FloatermToggle<CR>
 tnoremap   <silent>   <F12>      <C-\><C-n>:FloatermToggle<CR>
 " }}
 
-" vim-expand-region {{
-map <m-=> <Plug>(expand_region_expand)
-map <m--> <Plug>(expand_region_shrink)
-" }}
-
 " vimspector {{
 
 " }}
@@ -111,5 +106,5 @@ noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
 
 " clear the search buffer when hitting return
-nnoremap <leader><CR> :nohlsearch<CR>
+nnoremap <silent> <BS>           :nohlsearch<CR>
 

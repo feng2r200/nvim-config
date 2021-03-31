@@ -88,8 +88,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Editor Enhancement{
 Plug 'jiangmiao/auto-pairs'
-" 用 v 选中一个区域后，ALT_+/- 按分隔符扩大/缩小选区
-Plug 'terryma/vim-expand-region'
 " :help visual-multi
 Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-abolish'
@@ -406,5 +404,34 @@ let g:asynctasks_term_focus = 0
 
 " vim-go {{
 let g:go_list_type = "quickfix"
+" }}
+
+" vim-xtabline {{
+let g:xtabline_settings = get(g:, 'xtabline_settings', {})
+
+let g:xtabline_settings.indicators = {
+        \ 'modified': '[+]',
+        \ 'pinned': '[📌]',
+        \}
+let g:xtabline_settings.icons = {
+        \'pin': '📌',
+        \'star': '★',
+        \'book': '📖',
+        \'lock': '🔒',
+        \'hammer': '🔨',
+        \'tick': '✔',
+        \'cross': '✖',
+        \'warning': '⚠',
+        \'menu': '☰',
+        \'apple': '🍎',
+        \'linux': '🐧',
+        \'windows': '⌘',
+        \'git': '',
+        \'palette': '🎨',
+        \'lens': '🔍',
+        \'flag': '🏁',
+        \}
+
+let g:xtabline_settings.enable_mappings = 0
 " }}
 
