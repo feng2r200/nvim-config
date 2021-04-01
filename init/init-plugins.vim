@@ -27,8 +27,6 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " Auto Complete {
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
-" 给不同语言提供字典补全，插入模式下 c-x c-k 触发
-Plug 'asins/vim-dict'
 " }
 
 " Status line {
@@ -95,6 +93,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
+" automatically highlighting other uses of the current word under the cursor
+Plug 'RRethy/vim-illuminate'
 " }
 
 " 文本对象 {
@@ -129,7 +129,7 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = {"bash", "css", "go", "html", "java", "javascript", "json", "lua", "python", "regex", "toml"},
 	highlight = {
-		enable = true,              -- false will disable the whole extension
+		enable = false,              -- false will disable the whole extension
 		disable = {},               -- list of language that will be disabled
 	},
 	indent = {
@@ -500,5 +500,10 @@ tnoremap   <silent>   <ESC>gt    <C-\><C-n>:FloatermPrev<CR>
 tnoremap   <silent>   <ESC>gT    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <F12>      :FloatermToggle<CR>
 tnoremap   <silent>   <F12>      <C-\><C-n>:FloatermToggle<CR>
+" }}
+
+" vim-illuminate {{
+let g:Illuminate_delay = 100
+hi link illuminatedWord Visual
 " }}
 
