@@ -129,7 +129,7 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = {"bash", "css", "go", "html", "java", "javascript", "json", "lua", "python", "regex", "toml"},
 	highlight = {
-		enable = false,              -- false will disable the whole extension
+		enable = true,              -- false will disable the whole extension
 		disable = {},               -- list of language that will be disabled
 	},
 	indent = {
