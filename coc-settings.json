@@ -1,4 +1,5 @@
 {
+	"http.proxy": "http://127.0.0.1:6152",
 	"coc.preferences.colorSupport": true,
 	"coc.preferences.floatActions": true,
 	"coc.preferences.highlightTimeout": 500,
