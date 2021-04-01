@@ -124,6 +124,11 @@ Plug 'voldikss/LeaderF-floaterm'
 call plug#end()
 "}}
 
+
+"---------------------------------------------------------
+" 配置插件
+"---------------------------------------------------------
+
 " nvim-treesitter {{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -203,10 +208,6 @@ EOF
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 " }}
-
-"---------------------------------------------------------
-" 配置插件
-"---------------------------------------------------------
 
 " coc.vim {{
 let g:coc_global_extensions = [
