@@ -241,10 +241,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> gy         <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -329,19 +329,6 @@ let g:gutentags_auto_add_gtags_cscope = 0
 
 let g:gutentags_plus_nomap = 1
 " }}
-
-" python with virtualenv support {
-python3 << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUA_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  sys.path.insert(0, project_base_dir)
-  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
-" }
 
 " LeaderF {{
 let g:Lf_WindowPosition = 'popup'
@@ -506,5 +493,9 @@ tnoremap   <silent>   <F12>      <C-\><C-n>:FloatermToggle<CR>
 " vim-illuminate {{
 let g:Illuminate_delay = 100
 hi link illuminatedWord Visual
+" }}
+
+" vimspector {{
+
 " }}
 

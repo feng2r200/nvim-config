@@ -43,8 +43,8 @@
 	"explorer.git.enable": true,
 	"explorer.git.showIgnored": true,
 	"python.autoComplete.addBrackets": true,
-	"python.venvPath": "./venv",
-	"python.jediEnabled": false,
+	"python.venvPath": "./.env",
+	"python.jediEnabled": true,
 	"python.formatting.provider": "yapf",
 	"python.formatting.yapfArgs": [
 		"--style",
@@ -59,6 +59,7 @@
 	"java.import.maven.enabled":true,
 	"java.completion.enabled": true,
 	"java.completion.overwrite":false,
-	"java.completion.guessMethodArguments": true
+	"java.completion.guessMethodArguments": true,
+	"java.import.gradle.enabled": true
 }
 

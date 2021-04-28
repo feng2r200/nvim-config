@@ -68,6 +68,8 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+set rtp+=/usr/local/opt/fzf
+
 "----------------------------------------------------------------------
 " 文件类型微调
 "----------------------------------------------------------------------
@@ -101,4 +103,12 @@ augroup InitFileTypesGroup
 	au BufNewFile,BufRead *.vl setlocal filetype=verilog
 
 augroup END
+
+"----------------------------------------------------------------------
+" neovim 配置
+"----------------------------------------------------------------------
+let g:loaded_python_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
+let g:python3_host_prog = '/usr/local/bin/python3'
 
