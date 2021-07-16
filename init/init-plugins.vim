@@ -116,11 +116,6 @@ Plug 'mg979/vim-xtabline'
 Plug 'ryanoasis/vim-devicons'
 " }
 
-" 浮动终端 {
-Plug 'voldikss/vim-floaterm'
-Plug 'voldikss/LeaderF-floaterm'
-" }
-
 call plug#end()
 "}}
 
@@ -214,7 +209,6 @@ let g:coc_global_extensions = [
 			\ 'coc-css',
 			\ 'coc-diagnostic',
 			\ 'coc-explorer',
-			\ 'coc-floaterm',
 			\ 'coc-go',
 			\ 'coc-highlight',
 			\ 'coc-java',
@@ -483,19 +477,12 @@ let g:VM_maps['Find Subword Under']          = '<leader><leader>n'
 let g:VM_maps["Add Cursor At Pos"]           = ''
 " }}
 
-" vim-floaterm {{
-tnoremap   <silent>   <ESC>gt    <C-\><C-n>:FloatermPrev<CR>
-tnoremap   <silent>   <ESC>gT    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <F12>      :FloatermToggle<CR>
-tnoremap   <silent>   <F12>      <C-\><C-n>:FloatermToggle<CR>
-" }}
-
 " vim-illuminate {{
 let g:Illuminate_delay = 100
 hi link illuminatedWord Visual
 " }}
 
 " vimspector {{
-
+let g:vimspector_enable_mappings = 'HUMAN'
 " }}
 
