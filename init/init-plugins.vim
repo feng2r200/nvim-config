@@ -55,7 +55,7 @@ Plug 'pechorin/any-jump.vim'
 " }
 
 " Debugger {
-Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector', {'for': ['python']}
 " }
 
 " UndoTree {
